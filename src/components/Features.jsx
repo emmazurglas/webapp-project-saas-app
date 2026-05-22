@@ -1,85 +1,122 @@
-import { Zap, Shield, Users, BarChart3, Clock, Globe } from 'lucide-react'
+import { Zap, Shield, Users, BarChart3, Clock, Globe, ArrowUpRight } from 'lucide-react'
 
 const features = [
   {
     icon: Zap,
     title: 'Lightning Fast',
-    description: 'Experience blazing fast performance with our optimized infrastructure and edge computing.',
-    color: 'from-yellow-500 to-orange-500'
+    description: 'Experience blazing fast performance with our globally distributed edge infrastructure.',
+    gradient: 'from-amber-500 to-orange-600',
+    bg: 'from-amber-50 to-orange-50'
   },
   {
     icon: Shield,
     title: 'Enterprise Security',
-    description: 'Bank-level encryption and security protocols to keep your data safe and compliant.',
-    color: 'from-green-500 to-emerald-500'
+    description: 'Bank-level encryption, SOC 2 compliance, and advanced security protocols.',
+    gradient: 'from-emerald-500 to-teal-600',
+    bg: 'from-emerald-50 to-teal-50'
   },
   {
     icon: Users,
     title: 'Team Collaboration',
-    description: 'Real-time collaboration tools that make working together effortless and productive.',
-    color: 'from-blue-500 to-cyan-500'
+    description: 'Real-time collaboration with multiplayer cursors, comments, and live presence.',
+    gradient: 'from-blue-500 to-cyan-600',
+    bg: 'from-blue-50 to-cyan-50'
   },
   {
     icon: BarChart3,
     title: 'Advanced Analytics',
-    description: 'Gain insights with powerful analytics and customizable dashboards.',
-    color: 'from-purple-500 to-pink-500'
+    description: 'Beautiful dashboards with AI-powered insights and custom reporting.',
+    gradient: 'from-violet-500 to-purple-600',
+    bg: 'from-violet-50 to-purple-50'
   },
   {
     icon: Clock,
-    title: 'Automation',
-    description: 'Automate repetitive tasks and workflows to save time and reduce errors.',
-    color: 'from-red-500 to-rose-500'
+    title: 'Smart Automation',
+    description: 'Automate any workflow with our visual builder and AI assistant.',
+    gradient: 'from-rose-500 to-pink-600',
+    bg: 'from-rose-50 to-pink-50'
   },
   {
     icon: Globe,
     title: 'Global Scale',
-    description: 'Deploy globally with 99.99% uptime SLA and infrastructure in 50+ regions.',
-    color: 'from-indigo-500 to-purple-500'
+    description: '99.99% uptime SLA with infrastructure deployed across 50+ regions.',
+    gradient: 'from-indigo-500 to-violet-600',
+    bg: 'from-indigo-50 to-violet-50'
   }
 ]
 
 export default function Features() {
   return (
-    <section className="px-6 py-20 sm:py-24 lg:px-8" id="features">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative py-32 overflow-hidden" id="features">
+      {/* Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/50 to-white" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Everything you need to succeed
+        <div className="mx-auto max-w-3xl text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 text-violet-700 text-sm font-medium mb-6">
+            <Zap className="h-4 w-4" />
+            Powerful Features
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+            Everything you need to{' '}
+            <span className="bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">
+              ship faster
+            </span>
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300">
-            Powerful features to help your team work smarter, not harder.
+          <p className="text-xl text-slate-600 leading-relaxed">
+            A complete toolkit designed for modern teams. Build, collaborate, and scale with confidence.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
+                className="group relative"
               >
-                {/* Icon */}
-                <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br ${feature.color} p-2.5 shadow-lg`}>
-                  <Icon className="h-6 w-6 text-white" />
+                {/* Card */}
+                <div className="relative h-full p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:border-slate-300/80 transition-all duration-500 overflow-hidden">
+                  {/* Hover gradient background */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  
+                  {/* Content */}
+                  <div className="relative">
+                    {/* Icon */}
+                    <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-lg mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                      <Icon className="h-7 w-7 text-white" strokeWidth={1.5} />
+                    </div>
+
+                    {/* Text */}
+                    <h3 className="text-xl font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                      {feature.title}
+                      <ArrowUpRight className="h-5 w-5 text-slate-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-
-                {/* Content */}
-                <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-300">
-                  {feature.description}
-                </p>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-50 to-pink-50 opacity-0 transition-opacity group-hover:opacity-100 dark:from-purple-900/20 dark:to-pink-900/20"></div>
               </div>
             )
           })}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-20 text-center">
+          <a
+            href="#"
+            className="group inline-flex items-center gap-2 text-violet-600 font-semibold hover:text-violet-700 transition-colors"
+          >
+            Explore all features
+            <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
         </div>
       </div>
     </section>

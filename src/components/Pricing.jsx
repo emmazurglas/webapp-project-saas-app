@@ -1,143 +1,178 @@
-import { Check, Star } from 'lucide-react'
+import { Check, Sparkles, ArrowRight } from 'lucide-react'
 
 const pricingPlans = [
   {
     name: 'Starter',
-    price: '29',
-    description: 'Perfect for individuals and small teams',
+    description: 'Perfect for trying out CloudFlow',
+    price: '0',
+    period: 'forever free',
     features: [
-      'Up to 5 team members',
-      '10 GB storage',
+      'Up to 3 team members',
+      '5 GB storage',
       'Basic analytics',
-      'Email support',
-      'API access',
-      'Mobile app'
+      'Community support',
+      'API access'
     ],
+    cta: 'Get Started',
     highlighted: false
   },
   {
-    name: 'Professional',
-    price: '79',
-    description: 'For growing teams and businesses',
+    name: 'Pro',
+    description: 'For growing teams and startups',
+    price: '49',
+    period: 'per month',
     features: [
       'Up to 25 team members',
       '100 GB storage',
       'Advanced analytics',
       'Priority support',
-      'API access',
-      'Mobile app',
       'Custom integrations',
-      'Advanced security'
+      'Advanced security',
+      'Team permissions'
     ],
+    cta: 'Start Free Trial',
     highlighted: true
   },
   {
     name: 'Enterprise',
-    price: 'Custom',
     description: 'For large organizations',
+    price: 'Custom',
+    period: 'tailored pricing',
     features: [
       'Unlimited team members',
       'Unlimited storage',
       'Custom analytics',
-      '24/7 phone support',
-      'API access',
-      'Mobile app',
+      '24/7 dedicated support',
       'Custom integrations',
-      'Advanced security',
+      'SSO & SAML',
       'Dedicated account manager',
-      'SLA guarantee'
+      '99.99% SLA guarantee'
     ],
+    cta: 'Contact Sales',
     highlighted: false
   }
 ]
 
 export default function Pricing() {
   return (
-    <section className="px-6 py-20 sm:py-24 lg:px-8" id="pricing">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative py-32 overflow-hidden" id="pricing">
+      {/* Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-violet-50/30 to-white" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-violet-200/40 to-fuchsia-200/40 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Simple, transparent pricing
+        <div className="mx-auto max-w-3xl text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 text-violet-700 text-sm font-medium mb-6">
+            <Sparkles className="h-4 w-4" />
+            Simple Pricing
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+            Choose your{' '}
+            <span className="bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">
+              perfect plan
+            </span>
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300">
-            Choose the perfect plan for your needs. Always flexible to grow.
+          <p className="text-xl text-slate-600 leading-relaxed">
+            Start free and scale as you grow. All plans include a 14-day trial of Pro features.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3 lg:gap-6 items-start">
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`relative flex flex-col rounded-2xl border p-8 shadow-sm transition-all hover:shadow-xl ${
+              className={`relative rounded-3xl transition-all duration-500 ${
                 plan.highlighted
-                  ? 'border-purple-500 bg-gradient-to-b from-purple-50 to-white shadow-lg ring-2 ring-purple-500 dark:from-purple-900/20 dark:to-slate-800 dark:border-purple-400'
-                  : 'border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800'
+                  ? 'lg:-mt-4 lg:mb-4'
+                  : ''
               }`}
             >
               {/* Popular Badge */}
               {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1 text-sm font-semibold text-white shadow-lg">
-                    <Star className="h-4 w-4 fill-current" />
+                <div className="absolute -top-5 left-0 right-0 flex justify-center">
+                  <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white text-sm font-semibold shadow-lg shadow-violet-500/25">
+                    <Sparkles className="h-4 w-4" />
                     Most Popular
                   </span>
                 </div>
               )}
 
-              {/* Plan Header */}
-              <div className="mb-6">
-                <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">
-                  {plan.name}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-300">
-                  {plan.description}
-                </p>
-              </div>
-
-              {/* Price */}
-              <div className="mb-6">
-                {plan.price === 'Custom' ? (
-                  <div className="text-4xl font-bold text-slate-900 dark:text-white">
-                    Custom
-                  </div>
-                ) : (
-                  <div className="flex items-baseline">
-                    <span className="text-5xl font-bold text-slate-900 dark:text-white">
-                      ${plan.price}
-                    </span>
-                    <span className="ml-2 text-slate-600 dark:text-slate-400">
-                      /month
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Features List */}
-              <ul className="mb-8 flex-1 space-y-3">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 shrink-0 text-green-500" />
-                    <span className="text-slate-600 dark:text-slate-300">
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA Button */}
-              <button
-                className={`w-full rounded-lg px-6 py-3 font-semibold transition-all ${
+              {/* Card */}
+              <div
+                className={`relative h-full p-8 rounded-3xl border transition-all duration-500 ${
                   plan.highlighted
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg hover:shadow-xl hover:scale-105'
-                    : 'border-2 border-slate-300 bg-white text-slate-900 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600'
+                    ? 'bg-gradient-to-b from-white to-violet-50/50 border-violet-200 shadow-2xl shadow-violet-500/10'
+                    : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50'
                 }`}
               >
-                {plan.price === 'Custom' ? 'Contact Sales' : 'Get Started'}
-              </button>
+                {/* Plan Header */}
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    {plan.name}
+                  </h3>
+                  <p className="text-slate-600">
+                    {plan.description}
+                  </p>
+                </div>
+
+                {/* Price */}
+                <div className="mb-8 pb-8 border-b border-slate-200">
+                  <div className="flex items-baseline gap-2">
+                    {plan.price === 'Custom' ? (
+                      <span className="text-5xl font-bold text-slate-900">Custom</span>
+                    ) : (
+                      <>
+                        <span className="text-5xl font-bold text-slate-900">${plan.price}</span>
+                        <span className="text-slate-500">/ {plan.period}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* Features */}
+                <ul className="space-y-4 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <span className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
+                        plan.highlighted
+                          ? 'bg-gradient-to-br from-violet-500 to-fuchsia-500'
+                          : 'bg-emerald-500'
+                      }`}>
+                        <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                      </span>
+                      <span className="text-slate-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <button
+                  className={`group w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-semibold transition-all duration-300 ${
+                    plan.highlighted
+                      ? 'bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white shadow-lg shadow-violet-500/25 hover:shadow-xl hover:shadow-violet-500/30 hover:scale-[1.02]'
+                      : 'bg-slate-900 text-white hover:bg-slate-800 hover:scale-[1.02]'
+                  }`}
+                >
+                  {plan.cta}
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom Text */}
+        <div className="mt-16 text-center">
+          <p className="text-slate-500">
+            All prices in USD. Taxes may apply.{' '}
+            <a href="#" className="text-violet-600 hover:text-violet-700 font-medium underline underline-offset-4">
+              View full pricing details
+            </a>
+          </p>
         </div>
       </div>
     </section>

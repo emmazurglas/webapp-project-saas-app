@@ -1,3 +1,4 @@
+import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Features from './components/Features'
 import Pricing from './components/Pricing'
@@ -6,11 +7,14 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
-      <Hero />
-      <Features />
-      <Pricing />
-      <Testimonials />
+    <div className="min-h-screen bg-white antialiased">
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <Pricing />
+        <Testimonials />
+      </main>
       <Footer />
     </div>
   )
