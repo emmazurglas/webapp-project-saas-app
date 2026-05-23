@@ -48,14 +48,14 @@ const pricingPlans = [
 
 export default function Pricing() {
   return (
-    <section className="py-20 md:py-32" id="pricing">
+    <section className="py-20 md:py-32 bg-white dark:bg-neutral-950" id="pricing">
       <div className="mx-auto max-w-6xl px-6">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
             Simple, transparent pricing
           </h2>
-          <p className="text-lg text-neutral-600">
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
             Start free and scale as you grow. No hidden fees.
           </p>
         </div>
@@ -67,19 +67,19 @@ export default function Pricing() {
               key={index}
               className={`relative rounded-2xl p-8 ${
                 plan.highlighted
-                  ? 'bg-neutral-900 text-white'
-                  : 'bg-white border border-neutral-200'
+                  ? 'bg-emerald-500 text-white ring-2 ring-emerald-500 ring-offset-2 ring-offset-white dark:ring-offset-neutral-950'
+                  : 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800'
               }`}
             >
               {/* Plan Header */}
               <div className="mb-6">
                 <h3 className={`text-lg font-medium mb-1 ${
-                  plan.highlighted ? 'text-white' : 'text-neutral-900'
+                  plan.highlighted ? 'text-white' : 'text-neutral-900 dark:text-white'
                 }`}>
                   {plan.name}
                 </h3>
                 <p className={`text-sm ${
-                  plan.highlighted ? 'text-neutral-400' : 'text-neutral-600'
+                  plan.highlighted ? 'text-emerald-100' : 'text-neutral-600 dark:text-neutral-400'
                 }`}>
                   {plan.description}
                 </p>
@@ -89,15 +89,15 @@ export default function Pricing() {
               <div className="mb-6">
                 {plan.price === 'Custom' ? (
                   <span className={`text-4xl font-semibold ${
-                    plan.highlighted ? 'text-white' : 'text-neutral-900'
+                    plan.highlighted ? 'text-white' : 'text-neutral-900 dark:text-white'
                   }`}>Custom</span>
                 ) : (
                   <div className="flex items-baseline gap-1">
                     <span className={`text-4xl font-semibold ${
-                      plan.highlighted ? 'text-white' : 'text-neutral-900'
+                      plan.highlighted ? 'text-white' : 'text-neutral-900 dark:text-white'
                     }`}>${plan.price}</span>
                     <span className={`text-sm ${
-                      plan.highlighted ? 'text-neutral-400' : 'text-neutral-500'
+                      plan.highlighted ? 'text-emerald-100' : 'text-neutral-500 dark:text-neutral-500'
                     }`}>/month</span>
                   </div>
                 )}
@@ -108,10 +108,10 @@ export default function Pricing() {
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
                     <Check className={`h-5 w-5 flex-shrink-0 ${
-                      plan.highlighted ? 'text-neutral-400' : 'text-neutral-600'
+                      plan.highlighted ? 'text-emerald-200' : 'text-emerald-500'
                     }`} strokeWidth={1.5} />
                     <span className={`text-sm ${
-                      plan.highlighted ? 'text-neutral-300' : 'text-neutral-600'
+                      plan.highlighted ? 'text-emerald-50' : 'text-neutral-600 dark:text-neutral-400'
                     }`}>{feature}</span>
                   </li>
                 ))}
@@ -121,8 +121,8 @@ export default function Pricing() {
               <button
                 className={`w-full py-3 px-4 rounded-lg text-sm font-medium transition-colors ${
                   plan.highlighted
-                    ? 'bg-white text-neutral-900 hover:bg-neutral-100'
-                    : 'bg-neutral-900 text-white hover:bg-neutral-800'
+                    ? 'bg-white text-emerald-600 hover:bg-emerald-50'
+                    : 'bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100'
                 }`}
               >
                 {plan.cta}
