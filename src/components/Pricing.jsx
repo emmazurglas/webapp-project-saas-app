@@ -1,178 +1,134 @@
-import { Check, Sparkles, ArrowRight } from 'lucide-react'
+import { Check } from 'lucide-react'
 
 const pricingPlans = [
   {
-    name: 'Starter',
-    description: 'Perfect for trying out CloudFlow',
+    name: 'Free',
+    description: 'For individuals and small projects',
     price: '0',
-    period: 'forever free',
     features: [
-      'Up to 3 team members',
-      '5 GB storage',
+      'Up to 3 projects',
+      '1 GB storage',
       'Basic analytics',
-      'Community support',
-      'API access'
+      'Community support'
     ],
-    cta: 'Get Started',
+    cta: 'Get started',
     highlighted: false
   },
   {
     name: 'Pro',
-    description: 'For growing teams and startups',
-    price: '49',
-    period: 'per month',
+    description: 'For growing teams',
+    price: '12',
     features: [
-      'Up to 25 team members',
+      'Unlimited projects',
       '100 GB storage',
       'Advanced analytics',
       'Priority support',
       'Custom integrations',
-      'Advanced security',
       'Team permissions'
     ],
-    cta: 'Start Free Trial',
+    cta: 'Start free trial',
     highlighted: true
   },
   {
     name: 'Enterprise',
     description: 'For large organizations',
     price: 'Custom',
-    period: 'tailored pricing',
     features: [
-      'Unlimited team members',
+      'Everything in Pro',
       'Unlimited storage',
-      'Custom analytics',
-      '24/7 dedicated support',
-      'Custom integrations',
       'SSO & SAML',
-      'Dedicated account manager',
-      '99.99% SLA guarantee'
+      'Dedicated support',
+      'Custom contracts',
+      'SLA guarantee'
     ],
-    cta: 'Contact Sales',
+    cta: 'Contact sales',
     highlighted: false
   }
 ]
 
 export default function Pricing() {
   return (
-    <section className="relative py-32 overflow-hidden" id="pricing">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-violet-50/30 to-white" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-violet-200/40 to-fuchsia-200/40 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-32" id="pricing">
+      <div className="mx-auto max-w-6xl px-6">
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 text-violet-700 text-sm font-medium mb-6">
-            <Sparkles className="h-4 w-4" />
-            Simple Pricing
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6">
-            Choose your{' '}
-            <span className="bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">
-              perfect plan
-            </span>
+        <div className="max-w-2xl mb-16">
+          <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4">
+            Simple, transparent pricing
           </h2>
-          <p className="text-xl text-slate-600 leading-relaxed">
-            Start free and scale as you grow. All plans include a 14-day trial of Pro features.
+          <p className="text-lg text-neutral-600">
+            Start free and scale as you grow. No hidden fees.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid gap-8 lg:grid-cols-3 lg:gap-6 items-start">
+        <div className="grid gap-8 lg:grid-cols-3">
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-3xl transition-all duration-500 ${
+              className={`relative rounded-2xl p-8 ${
                 plan.highlighted
-                  ? 'lg:-mt-4 lg:mb-4'
-                  : ''
+                  ? 'bg-neutral-900 text-white'
+                  : 'bg-white border border-neutral-200'
               }`}
             >
-              {/* Popular Badge */}
-              {plan.highlighted && (
-                <div className="absolute -top-5 left-0 right-0 flex justify-center">
-                  <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white text-sm font-semibold shadow-lg shadow-violet-500/25">
-                    <Sparkles className="h-4 w-4" />
-                    Most Popular
-                  </span>
-                </div>
-              )}
+              {/* Plan Header */}
+              <div className="mb-6">
+                <h3 className={`text-lg font-medium mb-1 ${
+                  plan.highlighted ? 'text-white' : 'text-neutral-900'
+                }`}>
+                  {plan.name}
+                </h3>
+                <p className={`text-sm ${
+                  plan.highlighted ? 'text-neutral-400' : 'text-neutral-600'
+                }`}>
+                  {plan.description}
+                </p>
+              </div>
 
-              {/* Card */}
-              <div
-                className={`relative h-full p-8 rounded-3xl border transition-all duration-500 ${
+              {/* Price */}
+              <div className="mb-6">
+                {plan.price === 'Custom' ? (
+                  <span className={`text-4xl font-semibold ${
+                    plan.highlighted ? 'text-white' : 'text-neutral-900'
+                  }`}>Custom</span>
+                ) : (
+                  <div className="flex items-baseline gap-1">
+                    <span className={`text-4xl font-semibold ${
+                      plan.highlighted ? 'text-white' : 'text-neutral-900'
+                    }`}>${plan.price}</span>
+                    <span className={`text-sm ${
+                      plan.highlighted ? 'text-neutral-400' : 'text-neutral-500'
+                    }`}>/month</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Features */}
+              <ul className="space-y-3 mb-8">
+                {plan.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start gap-3">
+                    <Check className={`h-5 w-5 flex-shrink-0 ${
+                      plan.highlighted ? 'text-neutral-400' : 'text-neutral-600'
+                    }`} strokeWidth={1.5} />
+                    <span className={`text-sm ${
+                      plan.highlighted ? 'text-neutral-300' : 'text-neutral-600'
+                    }`}>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <button
+                className={`w-full py-3 px-4 rounded-lg text-sm font-medium transition-colors ${
                   plan.highlighted
-                    ? 'bg-gradient-to-b from-white to-violet-50/50 border-violet-200 shadow-2xl shadow-violet-500/10'
-                    : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50'
+                    ? 'bg-white text-neutral-900 hover:bg-neutral-100'
+                    : 'bg-neutral-900 text-white hover:bg-neutral-800'
                 }`}
               >
-                {/* Plan Header */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                    {plan.name}
-                  </h3>
-                  <p className="text-slate-600">
-                    {plan.description}
-                  </p>
-                </div>
-
-                {/* Price */}
-                <div className="mb-8 pb-8 border-b border-slate-200">
-                  <div className="flex items-baseline gap-2">
-                    {plan.price === 'Custom' ? (
-                      <span className="text-5xl font-bold text-slate-900">Custom</span>
-                    ) : (
-                      <>
-                        <span className="text-5xl font-bold text-slate-900">${plan.price}</span>
-                        <span className="text-slate-500">/ {plan.period}</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-
-                {/* Features */}
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <span className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
-                        plan.highlighted
-                          ? 'bg-gradient-to-br from-violet-500 to-fuchsia-500'
-                          : 'bg-emerald-500'
-                      }`}>
-                        <Check className="h-3 w-3 text-white" strokeWidth={3} />
-                      </span>
-                      <span className="text-slate-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <button
-                  className={`group w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-semibold transition-all duration-300 ${
-                    plan.highlighted
-                      ? 'bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white shadow-lg shadow-violet-500/25 hover:shadow-xl hover:shadow-violet-500/30 hover:scale-[1.02]'
-                      : 'bg-slate-900 text-white hover:bg-slate-800 hover:scale-[1.02]'
-                  }`}
-                >
-                  {plan.cta}
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </button>
-              </div>
+                {plan.cta}
+              </button>
             </div>
           ))}
-        </div>
-
-        {/* Bottom Text */}
-        <div className="mt-16 text-center">
-          <p className="text-slate-500">
-            All prices in USD. Taxes may apply.{' '}
-            <a href="#" className="text-violet-600 hover:text-violet-700 font-medium underline underline-offset-4">
-              View full pricing details
-            </a>
-          </p>
         </div>
       </div>
     </section>
