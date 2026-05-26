@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500">
               <span className="text-sm font-semibold text-white">C</span>
             </div>
             <span className="text-lg font-semibold text-neutral-900 dark:text-white">
@@ -95,7 +95,7 @@ export default function Navbar() {
             </a>
             <a
               href="#"
-              className="px-4 py-2 text-sm font-medium text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
             >
               Get Started
             </a>
@@ -140,7 +140,7 @@ export default function Navbar() {
               </a>
               <a
                 href="#"
-                className="block text-center px-4 py-2 text-sm font-medium text-white bg-emerald-500 rounded-lg"
+                className="block text-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg"
               >
                 Get Started
               </a>

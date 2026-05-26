@@ -67,7 +67,7 @@ export default function Pricing() {
               key={index}
               className={`relative rounded-2xl p-8 ${
                 plan.highlighted
-                  ? 'bg-emerald-500 text-white ring-2 ring-emerald-500 ring-offset-2 ring-offset-white dark:ring-offset-neutral-950'
+                  ? 'bg-blue-500 text-white ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-neutral-950'
                   : 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800'
               }`}
             >
@@ -79,7 +79,7 @@ export default function Pricing() {
                   {plan.name}
                 </h3>
                 <p className={`text-sm ${
-                  plan.highlighted ? 'text-emerald-100' : 'text-neutral-600 dark:text-neutral-400'
+                  plan.highlighted ? 'text-blue-100' : 'text-neutral-600 dark:text-neutral-400'
                 }`}>
                   {plan.description}
                 </p>
@@ -97,7 +97,7 @@ export default function Pricing() {
                       plan.highlighted ? 'text-white' : 'text-neutral-900 dark:text-white'
                     }`}>${plan.price}</span>
                     <span className={`text-sm ${
-                      plan.highlighted ? 'text-emerald-100' : 'text-neutral-500 dark:text-neutral-500'
+                      plan.highlighted ? 'text-blue-100' : 'text-neutral-500 dark:text-neutral-500'
                     }`}>/month</span>
                   </div>
                 )}
@@ -108,10 +108,10 @@ export default function Pricing() {
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
                     <Check className={`h-5 w-5 flex-shrink-0 ${
-                      plan.highlighted ? 'text-emerald-200' : 'text-emerald-500'
+                      plan.highlighted ? 'text-blue-200' : 'text-blue-500'
                     }`} strokeWidth={1.5} />
                     <span className={`text-sm ${
-                      plan.highlighted ? 'text-emerald-50' : 'text-neutral-600 dark:text-neutral-400'
+                      plan.highlighted ? 'text-blue-50' : 'text-neutral-600 dark:text-neutral-400'
                     }`}>{feature}</span>
                   </li>
                 ))}
@@ -121,7 +121,7 @@ export default function Pricing() {
               <button
                 className={`w-full py-3 px-4 rounded-lg text-sm font-medium transition-colors ${
                   plan.highlighted
-                    ? 'bg-white text-emerald-600 hover:bg-emerald-50'
+                    ? 'bg-white text-blue-600 hover:bg-blue-50'
                     : 'bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100'
                 }`}
               >

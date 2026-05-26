@@ -53,8 +53,8 @@ export default function Features() {
             const Icon = feature.icon
             return (
               <div key={index} className="group">
-                <div className="mb-4 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center">
-                  <Icon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" strokeWidth={1.5} />
+                <div className="mb-4 w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center">
+                  <Icon className="h-5 w-5 text-blue-600 dark:text-blue-400" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-2">
                   {feature.title}

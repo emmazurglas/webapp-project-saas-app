@@ -63,7 +63,7 @@ export default function Testimonials() {
             </p>
             <a
               href="#"
-              className="px-6 py-3 text-sm font-medium text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition-colors"
+              className="px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
             >
               Start for free
             </a>
