@@ -21,14 +21,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 md:py-32 bg-neutral-50 dark:bg-neutral-900" id="testimonials">
+    <section className="py-20 md:py-32 bg-midnight-50 dark:bg-midnight-900" id="testimonials">
       <div className="mx-auto max-w-6xl px-6">
         {/* Section Header */}
-        <div className="max-w-2xl mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
+        <div className="max-w-2xl mb-16 text-center mx-auto">
+          <h2 className="text-3xl md:text-4xl font-semibold text-midnight-900 dark:text-white tracking-tight mb-4">
             Loved by teams everywhere
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          <p className="text-lg text-midnight-600 dark:text-midnight-300">
             See what others are saying about CloudFlow.
           </p>
         </div>
@@ -38,16 +38,16 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-neutral-800 rounded-2xl p-8 border border-neutral-200 dark:border-neutral-700"
+              className="bg-white dark:bg-midnight-800 rounded-2xl p-8 border border-midnight-200 dark:border-midnight-700 hover:border-ocean-500 dark:hover:border-ocean-500 transition-all hover:shadow-ocean"
             >
-              <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-6">
+              <p className="text-midnight-700 dark:text-midnight-200 leading-relaxed mb-6 text-lg">
                 "{testimonial.quote}"
               </p>
               <div>
-                <p className="font-medium text-neutral-900 dark:text-white">
+                <p className="font-semibold text-midnight-900 dark:text-white">
                   {testimonial.author}
                 </p>
-                <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                <p className="text-sm text-midnight-500 dark:text-midnight-400">
                   {testimonial.role}, {testimonial.company}
                 </p>
               </div>
@@ -57,13 +57,13 @@ export default function Testimonials() {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700">
-            <p className="text-neutral-700 dark:text-neutral-300">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-6 p-8 bg-gradient-to-r from-ocean-50 to-ocean-100 dark:from-midnight-800 dark:to-midnight-800 rounded-2xl border border-ocean-200 dark:border-ocean-900">
+            <p className="text-lg font-semibold text-midnight-900 dark:text-white">
               Ready to get started?
             </p>
             <a
               href="#"
-              className="px-6 py-3 text-sm font-medium text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition-colors"
+              className="px-6 py-3 text-sm font-semibold text-white bg-gradient-ocean rounded-xl hover:shadow-ocean transition-all hover:scale-105"
             >
               Start for free
             </a>

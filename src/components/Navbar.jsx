@@ -47,18 +47,18 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800'
+          ? 'glass-strong border-b border-midnight-200 dark:border-midnight-800'
           : 'bg-transparent'
       }`}
     >
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500">
+          <a href="#" className="flex items-center gap-2 group">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-ocean shadow-ocean transition-transform group-hover:scale-110">
               <span className="text-sm font-semibold text-white">C</span>
             </div>
-            <span className="text-lg font-semibold text-neutral-900 dark:text-white">
+            <span className="text-lg font-semibold text-midnight-900 dark:text-white">
               CloudFlow
             </span>
           </a>
@@ -69,7 +69,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                className="text-sm font-medium text-midnight-600 dark:text-midnight-300 hover:text-ocean-600 dark:hover:text-ocean-400 transition-colors"
               >
                 {link.name}
               </a>
@@ -81,7 +81,7 @@ export default function Navbar() {
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="p-2 text-midnight-600 dark:text-midnight-400 hover:text-ocean-600 dark:hover:text-ocean-400 transition-colors rounded-lg hover:bg-ocean-50 dark:hover:bg-ocean-950"
               aria-label="Toggle theme"
             >
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -89,13 +89,13 @@ export default function Navbar() {
             
             <a
               href="#"
-              className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="text-sm font-medium text-midnight-600 dark:text-midnight-300 hover:text-ocean-600 dark:hover:text-ocean-400 transition-colors"
             >
               Sign in
             </a>
             <a
               href="#"
-              className="px-4 py-2 text-sm font-medium text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-white bg-gradient-ocean rounded-lg hover:shadow-ocean transition-all hover:scale-105"
             >
               Get Started
             </a>
@@ -105,14 +105,14 @@ export default function Navbar() {
           <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={toggleDarkMode}
-              className="p-2 text-neutral-600 dark:text-neutral-400"
+              className="p-2 text-midnight-600 dark:text-midnight-400"
               aria-label="Toggle theme"
             >
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+              className="p-2 text-midnight-600 dark:text-midnight-400 hover:text-midnight-900 dark:hover:text-white"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -122,25 +122,25 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
+        <div className="md:hidden bg-white dark:bg-midnight-900 border-t border-midnight-200 dark:border-midnight-800">
           <div className="px-6 py-4 space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+                className="block text-sm font-medium text-midnight-600 dark:text-midnight-300 hover:text-ocean-600 dark:hover:text-ocean-400"
               >
                 {link.name}
               </a>
             ))}
-            <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 space-y-3">
-              <a href="#" className="block text-sm text-neutral-600 dark:text-neutral-400">
+            <div className="pt-4 border-t border-midnight-200 dark:border-midnight-800 space-y-3">
+              <a href="#" className="block text-sm font-medium text-midnight-600 dark:text-midnight-300">
                 Sign in
               </a>
               <a
                 href="#"
-                className="block text-center px-4 py-2 text-sm font-medium text-white bg-emerald-500 rounded-lg"
+                className="block text-center px-4 py-2 text-sm font-medium text-white bg-gradient-ocean rounded-lg"
               >
                 Get Started
               </a>
