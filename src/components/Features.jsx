@@ -35,14 +35,14 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-20 md:py-32 bg-neutral-50 dark:bg-neutral-900" id="features">
+    <section className="py-20 md:py-32 bg-midnight-50 dark:bg-midnight-900" id="features">
       <div className="mx-auto max-w-6xl px-6">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-midnight-900 dark:text-white tracking-tight mb-4">
             Everything you need to ship faster
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          <p className="text-lg text-midnight-600 dark:text-midnight-300">
             A complete toolkit designed for modern teams. Simple, powerful, and easy to use.
           </p>
         </div>
@@ -52,14 +52,14 @@ export default function Features() {
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
-              <div key={index} className="group">
-                <div className="mb-4 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center">
-                  <Icon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" strokeWidth={1.5} />
+              <div key={index} className="group p-6 rounded-2xl bg-white dark:bg-midnight-800 border border-midnight-200 dark:border-midnight-700 hover:border-ocean-500 dark:hover:border-ocean-500 transition-all hover:shadow-ocean">
+                <div className="mb-4 w-12 h-12 rounded-xl bg-gradient-ocean flex items-center justify-center shadow-ocean">
+                  <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-2">
+                <h3 className="text-lg font-semibold text-midnight-900 dark:text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                <p className="text-midnight-600 dark:text-midnight-300 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
