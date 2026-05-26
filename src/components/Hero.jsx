@@ -42,7 +42,7 @@ export default function Hero() {
 
           {/* Subheading */}
           <p className="text-lg md:text-xl text-midnight-600 dark:text-midnight-300 leading-relaxed max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
-            CloudFlow is the modern platform for teams to collaborate, manage projects, and ship products. Simple, fast, and built for how you work.
+            CloudFlow is the modern platform for teams to collaborate to ship products fast
           </p>
 
           {/* CTA */}
